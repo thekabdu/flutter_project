@@ -1,3 +1,4 @@
+import 'package:bus_system/details.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -151,73 +152,69 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: ListView.builder(
-        itemBuilder: (context, index) => Card(
-          child: Column(
-            children: [
-              Container(
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          width: 200,
-                          height: 200,
-                          child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Bus-logo.svg/1024px-Bus-logo.svg.png',
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                        Text('End2End Test'),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('KZ 123'),
-                                Text('ABC'),
-                              ],
+        itemCount: 10,
+        itemBuilder: (context, index) => InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => DetailPage(index)));
+          },
+          child: Card(
+            child: Column(
+              children: [
+                Container(
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            width: 200,
+                            height: 200,
+                            child: Image.network(
+                              'https://purepng.com/public/uploads/large/purepng.com-white-busbusvehiclecarrying-passengerslarge-motor-vehiclecoachminibus-1701528460754rm19f.png',
+                              fit: BoxFit.contain,
                             ),
-                            Container(width: 10),
-                            Column(
-                              children: [
-                                Text('53 мест'),
-                              ],
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text('Город Х - Сарыагаш'),
-                        Container(height: 30),
-                        Text('Отправление',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text('Дата - 06.02.2020 Thu'),
-                        Text('Время - 19:30'),
-                        Text('Прибытие',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text('Дата - 07.02.2020 Thu'),
-                        Text('Время - 18:36'),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Center(
-                child: FlatButton(
-                  child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.green),
+                          ),
+                          Text('YUTONG',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('KZ 123'),
+                                  Text('ABC'),
+                                ],
+                              ),
+                              Container(width: 10),
+                              Column(
+                                children: [
+                                  Text('53 мест'),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
                       ),
-                      child: Container(
-                          width: 1000,
-                          child: Center(child: Text('Удалить рейс')))),
-                  onPressed: null,
+                      Column(
+                        children: [
+                          Text('Алматы - Сарыагаш'),
+                          Container(height: 30),
+                          Text('Отправление',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text('Дата - 06.02.2020 Thu'),
+                          Text('Время - 19:30'),
+                          Text('Прибытие',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text('Дата - 07.02.2020 Thu'),
+                          Text('Время - 18:36'),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ),
